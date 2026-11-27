@@ -1,6 +1,12 @@
 import type { BusinessSettings } from './types';
 
 /** Public origin of the site, no trailing slash. Set NEXT_PUBLIC_SITE_URL in production. */
+const LIVE_BUILD = process.env.VERCEL_ENV === 'production' || process.env.SITE_ENV === 'production';
+if (LIVE_BUILD && !process.env.NEXT_PUBLIC_SITE_URL) {
+  // Fail the live build rather than publish canonical links that point to localhost.
+  throw new Error('NEXT_PUBLIC_SITE_URL must be set for production builds (for example https://www.ameeralibulletspares.in).');
+}
+
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
 
 /**

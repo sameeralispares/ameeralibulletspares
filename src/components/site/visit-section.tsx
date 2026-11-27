@@ -39,38 +39,32 @@ export function VisitSection({
           <div className="lg:col-span-7">
             <div className="overflow-hidden rounded-[var(--radius-plate)] border border-graphite-900/12 bg-white shadow-[var(--shadow-plate)]">
               <dl className="divide-y divide-graphite-900/10">
-                <div className="flex gap-4 p-5 sm:p-6">
-                  <IconMapPin className="mt-1 shrink-0 text-bronze-600" width={22} height={22} />
-                  <div>
+                <div className="grid grid-cols-[auto_1fr] items-start gap-x-4 p-5 sm:p-6">
+                  <IconMapPin className="row-span-2 mt-1 text-bronze-600" width={22} height={22} />
                     <dt className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-stone-600">Address</dt>
                     <dd className="mt-1 text-[1.0625rem] leading-relaxed">
                       <span className="font-semibold">{settings.business_name}</span>
                       <br />
                       {settings.address}
                     </dd>
-                  </div>
                 </div>
                 {tel && (
-                  <div className="flex gap-4 p-5 sm:p-6">
-                    <IconPhone className="mt-1 shrink-0 text-bronze-600" width={22} height={22} />
-                    <div>
+                  <div className="grid grid-cols-[auto_1fr] items-start gap-x-4 p-5 sm:p-6">
+                    <IconPhone className="row-span-2 mt-1 text-bronze-600" width={22} height={22} />
                       <dt className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-stone-600">Phone</dt>
                       <dd className="mt-1 text-[1.0625rem]">
                         <a href={tel} className="font-semibold underline decoration-bronze-500/60 underline-offset-4 hover:decoration-bronze-600">
                           {settings.landline}
                         </a>
                       </dd>
-                    </div>
                   </div>
                 )}
-                <div className="flex gap-4 p-5 sm:p-6">
-                  <IconClock className="mt-1 shrink-0 text-bronze-600" width={22} height={22} />
-                  <div>
+                <div className="grid grid-cols-[auto_1fr] items-start gap-x-4 p-5 sm:p-6">
+                  <IconClock className="row-span-2 mt-1 text-bronze-600" width={22} height={22} />
                     <dt className="font-display text-sm font-semibold uppercase tracking-[0.12em] text-stone-600">Opening hours</dt>
                     <dd className="mt-1 whitespace-pre-line text-[1.0625rem]">
                       {settings.opening_hours ?? 'Please call the shop to confirm opening hours before visiting.'}
                     </dd>
-                  </div>
                 </div>
               </dl>
               {directions && (
