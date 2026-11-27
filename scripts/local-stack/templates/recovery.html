@@ -1,0 +1,13 @@
+<!--
+  Local recovery email template.
+
+  It links straight to the app's /auth/confirm route with token_hash + type,
+  so recovery uses verifyOtp — no PKCE code-verifier cookie is needed, and the
+  link works even when the email is opened on a different device or browser.
+  This mirrors the template to set in the hosted Supabase dashboard for
+  production (see docs/DEPLOYMENT.md).
+-->
+<h2>Reset your password</h2>
+<p>Someone asked to reset the password for this admin account. If it was you, choose a new password:</p>
+<p><a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&amp;type=recovery&amp;next=/admin/reset-password">Set a new password</a></p>
+<p>If you did not ask for this, you can ignore this email.</p>

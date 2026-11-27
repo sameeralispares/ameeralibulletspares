@@ -1,0 +1,32 @@
+# Public URL of the website, no trailing slash (used for canonicals, sitemap, emails)
+NEXT_PUBLIC_SITE_URL=http://localhost:****/
+
+# Supabase project (Project Settings -> API). Safe to expose to browsers; RLS protects data.
+NEXT_PUBLIC_SUPABASE_URL=https://****.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_****
+
+# SERVER/SCRIPTS ONLY. Used by scripts/create-admin.mjs and integration tests.
+# Do NOT add this to Vercel unless a server feature needs it (none currently do).
+SUPABASE_SERVICE_ROLE_KEY=sb_secret_****
+
+# Set to "production" only on the live deployment; anything else blocks indexing in robots.txt.
+SITE_ENV=production
+
+NEXT_PUBLIC_IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/****
+IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/****
+IMAGEKIT_PUBLIC_KEY=public_****
+IMAGEKIT_PRIVATE_KEY=private_****
+
+# Local test stack only: allow next/image to load from a 127.0.0.1 Supabase. Never set in production.
+# ALLOW_LOCAL_SUPABASE_IMAGES=1
+
+# Public URL of the website, no trailing slash (used for canonicals, sitemap, emails)
+# NEXT_PUBLIC_SITE_URL=https://www.ameeralibulletspares.in
+# Set to "production" only on the live deployment; anything else blocks indexing in robots.txt. 
+
+ALLOW_LOCAL_SUPABASE_IMAGES=1
+# Optional (24+ random chars): enables POST /api/revalidate to refresh the site after
+# data is edited outside the admin panel (e.g. SQL editor). Admin edits never need it.
+# REVALIDATE_SECRET=
+
+# AUTH_DEBUG=1

@@ -1,0 +1,9 @@
+{
+  "name": "local-supabase-test-stack",
+  "private": true,
+  "description": "Local test-only gateway for the S Ameer Ali project. Never deployed.",
+  "type": "module",
+  "dependencies": {
+    "pg": "^8.13.0"
+  }
+}

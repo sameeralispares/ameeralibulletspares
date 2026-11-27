@@ -1,0 +1,42 @@
+{
+  "name": "sameer-ali-spares",
+  "version": "0.1.9",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "test:e2e": "playwright test",
+    "stack:start": "bash scripts/local-stack/start.sh",
+    "stack:reset": "bash scripts/local-stack/start.sh --reset",
+    "stack:stop": "bash scripts/local-stack/stop.sh",
+    "create-admin": "node scripts/create-admin.mjs"
+  },
+  "dependencies": {
+    "@opennextjs/cloudflare": "1.20.19",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.119.0",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "^22.20.5",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5",
+    "vitest": "^5.1.0",
+    "wrangler": "4.168.0"
+  }
+}

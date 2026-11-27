@@ -1,0 +1,3 @@
+part_number,name,category,models,availability,status,type,description
+,Example: Clutch Plate Set,Clutch and Transmission,Classic; Bullet,Available,draft,oem,Optional plain-facts description
+,Example: Clutch Plate Set (vendor stock),Clutch and Transmission,Classic; Bullet,Available,draft,vendor,Same genuine part bought in from another vendor

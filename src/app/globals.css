@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   S Ameer Ali — design tokens
+   Graphite + warm ivory + muted bronze. Independent heritage/engineering
+   identity; deliberately NOT Royal Enfield's brand colours or artwork.
+   --------------------------------------------------------------------------- */
+@theme {
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-face), var(--font-body), ui-sans-serif, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-ink: #141517;
+  --color-graphite-950: #17181b;
+  --color-graphite-900: #1e2023;
+  --color-graphite-800: #282b2f;
+  --color-graphite-700: #383c42;
+  --color-graphite-600: #545961;
+  --color-graphite-500: #6e737b;
+
+  --color-ivory-50: #fbf9f4;
+  --color-ivory-100: #f5f0e6;
+  --color-ivory-200: #ebe3d3;
+  --color-ivory-300: #ddd2bd;
+
+  --color-stone-400: #a8a194;
+  --color-stone-500: #857f73;
+  --color-stone-600: #5f5a51;
+
+  --color-bronze-300: #d8b886;
+  --color-bronze-400: #c49a5f;
+  --color-bronze-500: #a97c43;
+  --color-bronze-600: #8b6332;
+  --color-bronze-700: #6d4c25;
+
+  --color-ok-700: #2c6a44;
+  --color-ok-50: #e8f2ea;
+  --color-stop-700: #9a2f2a;
+  --color-stop-50: #f8e9e7;
+  --color-ask-700: #835500;
+  --color-ask-50: #f8eedb;
+
+  --radius-plate: 0.375rem;
+  --shadow-plate: 0 1px 0 rgb(20 21 23 / 0.04), 0 8px 24px -12px rgb(20 21 23 / 0.18);
+
+  --animate-fade-in: fade-in 180ms ease-out both;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-ivory-50 text-ink font-sans antialiased;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+    letter-spacing: 0.01em;
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 3px solid var(--color-bronze-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  ::selection { background: var(--color-bronze-300); color: var(--color-ink); }
+  img { max-width: 100%; height: auto; }
+  input, select, textarea, button { font: inherit; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Small uppercase label used above headings — workshop-signage feel. */
+  .eyebrow {
+    @apply font-display text-[0.8125rem] font-semibold uppercase text-bronze-700;
+    letter-spacing: 0.16em;
+  }
+  .eyebrow-dark {
+    @apply font-display text-[0.8125rem] font-semibold uppercase text-bronze-300;
+    letter-spacing: 0.16em;
+  }
+  /* Engraved rule: thin bronze line with machined end-stops. */
+  .rule-machined {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-bronze-500), color-mix(in oklab, var(--color-bronze-500) 20%, transparent));
+  }
+  .rule-machined::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -3px;
+    width: 7px;
+    height: 7px;
+    border: 1px solid var(--color-bronze-500);
+    border-radius: 999px;
+    background: var(--color-ivory-50);
+  }
+  /* Fine engineering grid used on dark panels. */
+  .bg-blueprint {
+    background-color: var(--color-graphite-950);
+    background-image:
+      linear-gradient(rgb(255 255 255 / 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgb(255 255 255 / 0.035) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .prose-shop p + p { margin-top: 1em; }
+  .prose-shop { white-space: pre-line; }
+}
+
+/* Keep the footer clear of the fixed mobile enquiry bar on product pages. */
+@media (max-width: 1023.98px) {
+  body:has([data-sticky-enquiry]) footer { padding-bottom: 5.5rem; }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
